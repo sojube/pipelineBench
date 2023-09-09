@@ -20,7 +20,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mavenVersion>3.2.5</mavenVersion>
         <mavenPluginPluginVersion>3.5</mavenPluginPluginVersion>  
-        <java.version>1.8</java.version>
+        <java.version>1.8</java.version> 
     </properties>
 
    
