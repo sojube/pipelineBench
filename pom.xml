@@ -96,28 +96,21 @@
                 </configuration>
             </plugin>  
 
-                  <plugin>
-                  <groupId>com.diffplug.spotless</groupId>
-                  <artifactId>spotless-maven-plugin</artifactId>
-                  <version>${spotless.version}</version>
-                  <configuration>
-                      <java>
-                          <eclipse>
-                              <file>${session.executionRootDirectory}/eclipseformat.xml</file>
-                              <version>${spotless.formatter.version}</version>
-                          </eclipse>
-                          <removeUnusedImports/>
-                          <trimTrailingWhitespace/>
-                          <importOrder>
-                              <order>
-                                  java,javax,,
-                              </order>
-                          </importOrder>
-                          <lineEndings>UNIX</lineEndings>
-                      </java>
-                  </configuration>
-                  </plugin>
-        </plugins>
+         <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>1.0.0.BETA1</version>
+          <configuration>
+           <java>
+             <eclipse>
+                  <file>${basedir}/eclipse-fmt.xml</file>
+                  <version>4.7.1</version>
+             </eclipse>
+           </java>
+         </configuration>
+       </plugin>  
+                 
+      </plugins>
     </build>     
 
 </project>
