@@ -94,7 +94,29 @@
                     <source>1.8</source>
                     <target>1.8</target>     
                 </configuration>
-            </plugin>         
+            </plugin>  
+
+                  <plugin>
+                  <groupId>com.diffplug.spotless</groupId>
+                  <artifactId>spotless-maven-plugin</artifactId>
+                  <version>${spotless.version}</version>
+                  <configuration>
+                      <java>
+                          <eclipse>
+                              <file>${session.executionRootDirectory}/eclipseformat.xml</file>
+                              <version>${spotless.formatter.version}</version>
+                          </eclipse>
+                          <removeUnusedImports/>
+                          <trimTrailingWhitespace/>
+                          <importOrder>
+                              <order>
+                                  java,javax,,
+                              </order>
+                          </importOrder>
+                          <lineEndings>UNIX</lineEndings>
+                      </java>
+                  </configuration>
+                  </plugin>
         </plugins>
     </build>     
 
