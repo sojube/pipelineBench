@@ -8,19 +8,12 @@
     <relativePath />
   </parent>
 
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>3.11.1-SNAPSHOT</version>
+  
   <packaging>maven-plugin</packaging>
 
   <name>Apache Maven Compiler Plugin</name>
   <description>The Compiler Plugin is used to compile the sources of your project.</description>
   <inceptionYear>2001</inceptionYear>
-
-  <contributors>
-    <contributor>
-      <name>Jan Sievers</name>
-    </contributor>
-  </contributors>
 
     <groupId>StrakkraftBenchProjekt</groupId>
     <artifactId>StrakkraftBenchProjekt</artifactId>
@@ -32,7 +25,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-          
+        <mavenVersion>3.2.5</mavenVersion>
+        <mavenPluginPluginVersion>3.5</mavenPluginPluginVersion>  
         <java.version>1.8</java.version>
     </properties>
 
