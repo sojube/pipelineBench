@@ -90,7 +90,7 @@
             <plugin> <!-- this is the maven plugin, it is necesary to compile the xml file -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>1.8</version>
                 <executions>
                     <execution>
                         <goals>
@@ -99,8 +99,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <source>3.11.0</source>
-                    <target>3.11.0</target>     
+                    <source>1.8</source>
+                    <target>1.8</target>     
                 </configuration>
             </plugin>         
         </plugins>
