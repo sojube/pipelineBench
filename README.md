@@ -1,1 +1,1 @@
-der Build hat nicht wirklich funktioniert.
+der Build hat net wirklich funktioniert.
