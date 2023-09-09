@@ -117,48 +117,114 @@
        </plugin> 
 
         <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.4.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>extra-enforcer-rules</artifactId>
+            <version>1.7.0</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
-            <id>enforce-checksum</id>
+            <id>display-info</id>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <phase>validate</phase>
             <configuration>
               <rules>
-                <requireFileChecksum>
-                  <file>${project.build.outputDirectory}/foo.txt</file>
-                  <checksum>d41d8cd98f00b204e9800998ecf8427e</checksum>
-                  <type>md5</type>
-                </requireFileChecksum>
-                <requireFileChecksum>
-                  <file>${project.build.outputDirectory}/bar.txt</file>
-                  <checksum>da39a3ee5e6b4b0d3255bfef95601890afd80709</checksum>
-                  <type>sha1</type>
-                </requireFileChecksum>
-                <requireFileChecksum>
-                  <file>${project.build.outputDirectory}/baz.txt</file>
-                  <checksum>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</checksum>
-                  <type>sha256</type>
-                </requireFileChecksum>
-                <requireFileChecksum>
-                  <file>${project.build.outputDirectory}/qux.txt</file>
-                  <checksum>38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b</checksum>
-                  <type>sha384</type>
-                </requireFileChecksum>
-                <requireFileChecksum>
-                  <file>${project.build.outputDirectory}/quux.txt</file>
-                  <checksum>cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e</checksum>
-                  <type>sha512</type>
-                </requireFileChecksum>
+                <requireMavenVersion>
+                  <version>[3.8.1,)</version>
+                  <message>3.8.1 required to no longer download dependencies via HTTP (use HTTPS instead).</message>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>[${maven.compiler.release},)</version>
+                </requireJavaVersion>
+                <!-- TODO failing during incrementals deploy: MENFORCER-281
+                <requirePluginVersions>
+                  <banSnapshots>false</banSnapshots>
+                </requirePluginVersions>
+                -->
+                <enforceBytecodeVersion>
+                  <maxJdkVersion>${maven.compiler.release}</maxJdkVersion>
+                  <ignoredScopes>
+                    <ignoredScope>test</ignoredScope>
+                  </ignoredScopes>
+                  <!-- To add exclusions in a Jenkins plugin, use:
+                  <plugin>
+                      <artifactId>maven-enforcer-plugin</artifactId>
+                      <executions>
+                          <execution>
+                              <id>display-info</id>
+                              <configuration>
+                                  <rules>
+                                      <enforceBytecodeVersion>
+                                          <excludes combine.children="append">
+                                              <exclude>…</exclude>
+                                          </excludes>
+                                      </enforceBytecodeVersion>
+                                  </rules>
+                              </configuration>
+                          </execution>
+                      </executions>
+                  </plugin>
+                  -->
+                </enforceBytecodeVersion>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>javax.servlet:javax.servlet-api</exclude>
+                    <exclude>javax.servlet:servlet-api</exclude>
+                    <exclude>org.sonatype.sisu:sisu-guice</exclude>
+                    <exclude>log4j:log4j:*:jar:compile</exclude>
+                    <exclude>log4j:log4j:*:jar:runtime</exclude>
+                    <exclude>commons-logging:commons-logging:*:jar:compile</exclude>
+                    <exclude>commons-logging:commons-logging:*:jar:runtime</exclude>
+
+                    <!-- CVE-2021-44228 -->
+                    <exclude>org.apache.logging.log4j:*:(,2.15.0-rc1]</exclude>
+
+                    <!-- Jenkins Test Harness is based on JUnit. Adding TestNG dependency would disable some of its functionality. -->
+                    <exclude>org.testng:testng</exclude>
+                  </excludes>
+                </bannedDependencies>
+                <requireUpperBoundDeps>
+                  <excludes>
+                    <exclude>com.google.code.findbugs:annotations</exclude>
+                    <exclude>com.google.code.findbugs:jsr305</exclude>
+                    <exclude>com.google.guava:guava</exclude>
+                    <exclude>commons-logging:commons-logging</exclude>
+                    <exclude>javax.servlet:javax.servlet-api</exclude>
+                    <exclude>javax.servlet:servlet-api</exclude>
+                    <exclude>net.java.dev.jna:jna</exclude>
+                    <exclude>org.kohsuke:access-modifier-annotation</exclude>
+                   
+                    <exclude>org.ow2.asm:asm</exclude>
+                  </excludes>
+                </requireUpperBoundDeps>
               </rules>
-              <fail>true</fail>
+            </configuration>
+          </execution>
+          <execution>
+            <id>no-snapshots-in-release</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <phase>validate</phase>
+            <configuration>
+              <rules>
+               
+                <requireReleaseDeps>
+                  <message>No SNAPSHOT versions are allowed for releases</message>
+                  <onlyWhenRelease>true</onlyWhenRelease>
+                  <!--  whilst we generally want this this allows for easier testing of the plugin-pom in incrementals -->
+                  <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
+                </requireReleaseDeps>
+              </rules>
             </configuration>
           </execution>
         </executions>
-      </plugin>          
+      </plugin>
                  
       </plugins>
     </build>     
