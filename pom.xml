@@ -150,7 +150,7 @@
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-compiler-manager</artifactId>
       <version>${plexusCompilerVersion}</version>
-    </dependency
+    </dependency>
 
     <dependency>
       <groupId>org.apache.maven.plugin-testing</groupId>
