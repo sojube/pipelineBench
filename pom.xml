@@ -8,13 +8,6 @@
     <relativePath />
   </parent>
 
-  
-  <packaging>maven-plugin</packaging>
-
-  <name>Apache Maven Compiler Plugin</name>
-  <description>The Compiler Plugin is used to compile the sources of your project.</description>
-  <inceptionYear>2001</inceptionYear>
-
     <groupId>StrakkraftBenchProjekt</groupId>
     <artifactId>StrakkraftBenchProjekt</artifactId>
     <version>1.0-SNAPSHOT</version>
