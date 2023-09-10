@@ -103,7 +103,8 @@
     </dependencies>    
 
      <build>
-        <plugins>    
+        <plugins> 
+                 
             <plugin> <!-- this is the maven plugin, it is necesary to compile the xml file -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -115,46 +116,19 @@
             </plugin>  
 
          <plugin>
-          <groupId>com.diffplug.spotless</groupId>
-          <artifactId>spotless-maven-plugin</artifactId>
-          <version>1.0.0.BETA1</version>
-          <configuration>
-           <java>
-             <eclipse>
+           <groupId>com.diffplug.spotless</groupId>
+           <artifactId>spotless-maven-plugin</artifactId>
+           <version>1.0.0.BETA1</version>
+           <configuration>
+            <java>
+              <eclipse>
                   <file>${basedir}/eclipse-fmt.xml</file>
                   <version>4.7.1</version>
-             </eclipse>
-           </java>
-         </configuration>
-       </plugin> 
+              </eclipse>
+            </java>
+           </configuration>
+         </plugin> 
 
-       
-
-        <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-enforcer-plugin</artifactId>
-             <executions>
-                 <execution>
-                     <id>enforce-banned-dependencies</id>
-                     <goals>
-                         <goal>enforce</goal>
-                     </goals>
-         
-                <configuration>
-                     <rules>
-                        <enforceBytecodeVersion>
-                           <maxJdkVersion>1.5</maxJdkVersion>
-                              <excludes>
-                                 <exclude>org.mindrot:jbcrypt</exclude>
-                              </excludes>
-                        </enforceBytecodeVersion>
-                     </rules>
-                     <fail>true</fail>
-                </configuration>
-                
-             </execution>
-          </executions>
-     </plugin>            
                  
  </plugins>
 </build>     
