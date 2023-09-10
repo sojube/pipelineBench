@@ -141,7 +141,7 @@
             <configuration>
               <rules>
                 <enforceBytecodeVersion>
-                  <maxJdkVersion>1.8</maxJdkVersion>
+                  <maxJdkVersion>11</maxJdkVersion>
                   <ignoreClasses>
                     <ignoreClass>module-info</ignoreClass>
                   </ignoreClasses>
