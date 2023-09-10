@@ -160,33 +160,9 @@
                   <ignoredScopes>
                     <ignoredScope>test</ignoredScope>
                   </ignoredScopes>
-                  <!-- To add exclusions in a Jenkins plugin, use:
-                 <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-enforcer-plugin</artifactId>
-                      <executions>
-                          <execution>
-                              <id>enforce-banned-dependencies</id>
-                              <goals>
-                                  <goal>enforce</goal>
-                              </goals>
-
-                         <configuration>
-                              <rules>
-                                 <enforceBytecodeVersion>
-                                    <maxJdkVersion>1.5</maxJdkVersion>
-                                       <excludes>
-                                          <exclude>org.mindrot:jbcrypt</exclude>
-                                       </excludes>
-                                 </enforceBytecodeVersion>
-                              </rules>
-                              <fail>true</fail>
-                         </configuration>
-                         
-                      </execution>
-                   </executions>
-               </plugin>
-                  -->
+                  
+                
+                  
                 </enforceBytecodeVersion>
                 <bannedDependencies>
                   <excludes>
@@ -242,6 +218,32 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-enforcer-plugin</artifactId>
+                      <executions>
+                          <execution>
+                              <id>enforce-banned-dependencies</id>
+                              <goals>
+                                  <goal>enforce</goal>
+                              </goals>
+
+                         <configuration>
+                              <rules>
+                                 <enforceBytecodeVersion>
+                                    <maxJdkVersion>1.5</maxJdkVersion>
+                                       <excludes>
+                                          <exclude>org.mindrot:jbcrypt</exclude>
+                                       </excludes>
+                                 </enforceBytecodeVersion>
+                              </rules>
+                              <fail>true</fail>
+                         </configuration>
+                         
+                      </execution>
+                   </executions>
+               </plugin>            
                  
       </plugins>
     </build>     
