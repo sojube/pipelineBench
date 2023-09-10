@@ -93,7 +93,12 @@
           <artifactId>enforcer-api</artifactId>
           <version>${api.version}</version>
           <scope>provided</scope>
-        </dependency>     
+        </dependency> 
+         <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>extra-enforcer-rules</artifactId>
+            <version>1.7.0</version>
+          </dependency>     
 
     </dependencies>    
 
@@ -126,11 +131,8 @@
         <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <dependencies>
-          <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>extra-enforcer-rules</artifactId>
-            <version>1.7.0</version>
-          </dependency>
+
+                 
         </dependencies>
         <executions>
           <execution>
