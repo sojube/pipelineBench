@@ -161,23 +161,36 @@
                     <ignoredScope>test</ignoredScope>
                   </ignoredScopes>
                   <!-- To add exclusions in a Jenkins plugin, use:
-                  <plugin>
+                 <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-enforcer-plugin</artifactId>
                       <executions>
                           <execution>
-                              <id>display-info</id>
+                              <id>enforce-banned-dependencies</id>
+                              <goals>
+                                  <goal>enforce</goal>
+                              </goals>
                               <configuration>
                                   <rules>
-                                      <enforceBytecodeVersion>
-                                          <excludes combine.children="append">
-                                              <exclude>…</exclude>
-                                          </excludes>
-                                      </enforceBytecodeVersion>
+                                      <bannedDependencies>
+                                          <includes>
+                                              <include>de.lmu.ifi.dbs.utilities:common-extension-lib</include>
+                                              <include>de.lmu.ifi.dbs.jfeaturelib:JFeatureLib</include>
+                                          </includes>
+                                      </bannedDependencies>
                                   </rules>
+                                  <enforceBytecodeVersion>
+                                      <maxJdkVersion>1.6</maxJdkVersion>
+                                      <excludes>
+                                          <exclude>de.lmu.ifi.dbs.jfeaturelib:JFeatureLib</exclude>
+                                          <exclude>de.lmu.ifi.dbs.utilities:common-extension-lib</exclude>
+                                      </excludes>
+                                  </enforceBytecodeVersion>
+                  
                               </configuration>
                           </execution>
                       </executions>
-                  </plugin>
+               </plugin>
                   -->
                 </enforceBytecodeVersion>
                 <bannedDependencies>
