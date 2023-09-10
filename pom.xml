@@ -62,7 +62,7 @@
              
     </dependencies>
  
-
+<!-- mes augmentationssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss debut-->
     <build>
     <plugins>
       <plugin>
@@ -89,7 +89,7 @@
                   <version>2.0.6</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
-                  <version>1.5</version>
+                  <version>1.9</version>
                 </requireJavaVersion>
                 <requireOS>
                   <family>unix</family>
