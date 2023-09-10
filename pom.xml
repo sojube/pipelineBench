@@ -88,6 +88,7 @@
           <artifactId>spotless-maven-plugin</artifactId>
           <version>2.39.0</version>
         </dependency> 
+ <!-- mes augmentationssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
         <dependency>
           <groupId>org.apache.maven.enforcer</groupId>
           <artifactId>enforcer-api</artifactId>
@@ -99,7 +100,7 @@
             <artifactId>extra-enforcer-rules</artifactId>
             <version>1.7.0</version>
           </dependency>     
-
+<!-- mes augmentationssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
     </dependencies>    
 
      <build>
