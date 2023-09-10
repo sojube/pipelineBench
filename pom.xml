@@ -170,26 +170,21 @@
                               <goals>
                                   <goal>enforce</goal>
                               </goals>
-                              <configuration>
-                                  <rules>
-                                      <bannedDependencies>
-                                          <includes>
-                                              <include>de.lmu.ifi.dbs.utilities:common-extension-lib</include>
-                                              <include>de.lmu.ifi.dbs.jfeaturelib:JFeatureLib</include>
-                                          </includes>
-                                      </bannedDependencies>
-                                  </rules>
-                                  <enforceBytecodeVersion>
-                                      <maxJdkVersion>1.6</maxJdkVersion>
-                                      <excludes>
-                                          <exclude>de.lmu.ifi.dbs.jfeaturelib:JFeatureLib</exclude>
-                                          <exclude>de.lmu.ifi.dbs.utilities:common-extension-lib</exclude>
-                                      </excludes>
-                                  </enforceBytecodeVersion>
-                  
-                              </configuration>
-                          </execution>
-                      </executions>
+
+                         <configuration>
+                              <rules>
+                                 <enforceBytecodeVersion>
+                                    <maxJdkVersion>1.5</maxJdkVersion>
+                                       <excludes>
+                                          <exclude>org.mindrot:jbcrypt</exclude>
+                                       </excludes>
+                                 </enforceBytecodeVersion>
+                              </rules>
+                              <fail>true</fail>
+                         </configuration>
+                         
+                      </execution>
+                   </executions>
                </plugin>
                   -->
                 </enforceBytecodeVersion>
