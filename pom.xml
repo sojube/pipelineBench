@@ -103,5 +103,12 @@
       <version>3.10-FINAL</version>
     </dependency>
   </dependencies>
+	<!-- https://mvnrepository.com/artifact/com.jameskleeh/excel-builder -->
+<dependency>
+    <groupId>com.jameskleeh</groupId>
+    <artifactId>excel-builder</artifactId>
+    <version>0.4.4</version>
+</dependency>
+
 
 </project>
