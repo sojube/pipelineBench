@@ -51,6 +51,12 @@
         </dependency>
              
  <!-- mes augmentationssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss debut-->
+         <!-- https://mvnrepository.com/artifact/org.apache.groovy/groovy -->
+         <dependency>
+             <groupId>org.apache.groovy</groupId>
+             <artifactId>groovy</artifactId>
+             <version>4.0.14</version>
+         </dependency>    
         <dependency>
           <groupId>maxmoto1702</groupId>
           <artifactId>excel-builder</artifactId>
